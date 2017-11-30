@@ -14,3 +14,23 @@
 // To declare rules for a specific mode, create a child rule
 // for the .md, .ios, or .wp mode classes. The mode class is
 // automatically applied to the <body> element in the app.
+.globalBackground {
+    background: url('./../assets/imgs/PlanoFundo.jpg')
+}
+
+.hoverMouse {
+    background-color: transparent; 
+    color: white
+}
+
+.hoverMouse:hover {
+    background-color: #fff;
+    border-radius: 2px;
+    color: #000
+}
+
+.iconSelect{
+    color: #cdcdcd
+}
+
+
