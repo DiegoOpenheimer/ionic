@@ -1,3 +1,4 @@
+import { InfoPokemonComponent } from './../components/info-pokemon/info-pokemon';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { IonicApp, IonicModule, IonicErrorHandler } from 'ionic-angular';
@@ -13,6 +14,9 @@ import { SplashScreen } from '@ionic-native/splash-screen';
 import { PokemonServiceProvider } from '../providers/pokemon-service/pokemon-service';
 import {HttpClientModule} from '@angular/common/http'
 import { ItemProvider } from '../providers/item/item';
+import { InfoPokemonPage } from '../pages/info-pokemon/info-pokemon'
+import { UniquePokemonComponent } from '../components/unique-pokemon/unique-pokemon'
+
 
 
 
@@ -22,7 +26,10 @@ import { ItemProvider } from '../providers/item/item';
     PokemonPage,
     HomePage,
     TabsPage,
-    ItemPage
+    ItemPage,
+    InfoPokemonPage,
+    UniquePokemonComponent
+    
   ],
   imports: [
     BrowserModule,
@@ -35,7 +42,10 @@ import { ItemProvider } from '../providers/item/item';
     PokemonPage,
     HomePage,
     TabsPage,
-    ItemPage
+    ItemPage,
+    InfoPokemonPage,
+    UniquePokemonComponent
+    
   ],
   providers: [
     StatusBar,

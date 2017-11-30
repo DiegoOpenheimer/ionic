@@ -45,12 +45,8 @@ export class PokemonPage {
       toast.present()
 
       this.navCtrl.setRoot(HomePage)
+      return false
     })
-  }
-
-  getObject(item) {
-    this.pokemonName = item.target.innerText
-
   }
 
   

@@ -8,11 +8,6 @@
 
 <ion-content padding class="globalBackground">
 
-    <ion-item  class="hoverMouse" *ngFor="let pokemon  of pokemons"  (click)="getObject($event)" >
-      <span class="spanName">{{pokemon.name}}</span>
-      <ion-icon class="iconSelect" name="ios-arrow-forward" item-right></ion-icon>
-    </ion-item>
-
-
+    <unique-pokemon *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></unique-pokemon>
 
 </ion-content>

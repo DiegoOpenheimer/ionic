@@ -1,0 +1,39 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>infoPokemon</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding class="globalBackground">
+
+  <table *ngIf="pokemonInfo" border="1" style="color: white">
+    <thead>
+      <th>Imagem</th>
+      <th>Nome</th>
+      <th>Ability</th>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          {{pokemonInfo?.name}} 
+        </td>
+        
+        <td>
+          
+        </td>
+        
+        <td>
+      
+        </td>
+      
+      </tr>
+      
+    </tbody>
+
+  </table>
+
+</ion-content>

@@ -11,7 +11,7 @@
 <ion-content padding class="globalBackground">
 
  
-    <ion-item class="hoverMouse" *ngFor="let item of items " >
+    <ion-item class="hoverMouse" *ngFor="let item of items " (click)="openInfo($event)" >
       <span class="spanName">{{item.name}}</span>
       <ion-icon item-right class="iconSelect" name="ios-arrow-forward"></ion-icon>
     </ion-item>

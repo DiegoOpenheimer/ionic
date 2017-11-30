@@ -4,6 +4,8 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { ItemProvider } from '../../providers/item/item';
 import { HomePage } from '../home/home';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
+import { ModalController } from 'ionic-angular/components/modal/modal-controller';
+import { InfoPokemonPage } from '../info-pokemon/info-pokemon';
 
 
 @Component({
@@ -16,7 +18,7 @@ export class ItemPage {
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public itemProvider: ItemProvider, public toastController: ToastController,
-  public loadController: LoadingController) {
+  public loadController: LoadingController, public modalController: ModalController) {
   }
 
   ionViewDidLoad() {
@@ -45,6 +47,10 @@ export class ItemPage {
          console.log(e)
          this.navCtrl.setRoot(HomePage)
        })
+  }
+
+
+  openInfo(event) {
   }
 
 }
