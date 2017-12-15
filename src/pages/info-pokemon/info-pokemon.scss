@@ -1,2 +1,13 @@
 page-info-pokemon {
+    ion-card img {
+        width: 50% !important;
+    }
+    .card-content-md, .card-content-ios {
+        padding: 0px 0px 18px 0px !important
+    }
+
+    .contentInfo {
+        margin-left: 20px
+    }
+    
 }

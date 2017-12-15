@@ -1,5 +1,5 @@
 import { PokemonServiceProvider } from './../../providers/pokemon-service/pokemon-service';
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { NavController, NavParams } from 'ionic-angular';
 import { ViewController } from 'ionic-angular/navigation/view-controller';
 import { LoadingController } from 'ionic-angular/components/loading/loading-controller';
@@ -18,7 +18,7 @@ export class InfoPokemonPage {
   public pokemonService : PokemonServiceProvider, public loadController:LoadingController) {
   }
 
-  ionViewDidLoad() {
+  ngOnInit(){
     let load = this.loadController.create({
       content: 'Carregando'
     })
@@ -29,7 +29,7 @@ export class InfoPokemonPage {
                        .then( data => {
                          load.dismiss()
                          this.pokemonInfo = data
-                       })
+                        })
                        .catch( err => {
                          console.log(err)
                        })

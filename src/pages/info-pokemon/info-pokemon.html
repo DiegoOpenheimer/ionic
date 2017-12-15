@@ -9,31 +9,28 @@
 
 
 <ion-content padding class="globalBackground">
-
-  <table *ngIf="pokemonInfo" border="1" style="color: white">
-    <thead>
-      <th>Imagem</th>
-      <th>Nome</th>
-      <th>Ability</th>
-    </thead>
-    <tbody>
-      <tr>
-        <td>
-          {{pokemonInfo?.name}} 
-        </td>
-        
-        <td>
-          
-        </td>
-        
-        <td>
-      
-        </td>
-      
-      </tr>
-      
-    </tbody>
-
-  </table>
+  <ion-card>
+    <img height="10%" [src]="pokemonInfo?.sprites.front_default"/>
+      <ion-card-content>
+      <ion-card-title text-center>
+        {{pokemonInfo?.name}}      
+      </ion-card-title>
+      <div class="contentInfo">
+        <h2>Abilities</h2>
+          <ul>
+            <li *ngFor="let ability of pokemonInfo?.abilities">{{ability?.ability.name}}</li>
+          </ul><hr />
+          <h2>Weight</h2>
+          <ul>
+            <li>{{pokemonInfo?.weight}}</li><hr />
+          </ul>
+          <h2>Moves</h2>
+          <ul>
+            <li *ngFor="let move of pokemonInfo?.moves">{{move?.move.name}}</li>
+          </ul><hr />
+         
+      </div>
+    </ion-card-content>
+  </ion-card>
 
 </ion-content>
