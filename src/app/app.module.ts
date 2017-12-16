@@ -1,3 +1,4 @@
+import { InfoItemPage } from './../pages/info-item/info-item';
 import { InfoPokemonComponent } from './../components/info-pokemon/info-pokemon';
 import { NgModule, ErrorHandler } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -12,7 +13,7 @@ import { ItemPage } from '../pages/item/item';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { PokemonServiceProvider } from '../providers/pokemon-service/pokemon-service';
-import {HttpClientModule} from '@angular/common/http'
+import { HttpClientModule } from '@angular/common/http'
 import { ItemProvider } from '../providers/item/item';
 import { InfoPokemonPage } from '../pages/info-pokemon/info-pokemon'
 import { UniquePokemonComponent } from '../components/unique-pokemon/unique-pokemon'
@@ -28,7 +29,8 @@ import { UniquePokemonComponent } from '../components/unique-pokemon/unique-poke
     TabsPage,
     ItemPage,
     InfoPokemonPage,
-    UniquePokemonComponent
+    UniquePokemonComponent,
+    InfoItemPage
     
   ],
   imports: [
@@ -44,7 +46,8 @@ import { UniquePokemonComponent } from '../components/unique-pokemon/unique-poke
     TabsPage,
     ItemPage,
     InfoPokemonPage,
-    UniquePokemonComponent
+    UniquePokemonComponent,
+    InfoItemPage
     
   ],
   providers: [

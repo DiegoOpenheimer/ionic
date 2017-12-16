@@ -1,3 +1,4 @@
+import { InfoItemPage } from './../info-item/info-item';
 import { ToastController } from 'ionic-angular/components/toast/toast-controller';
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
@@ -14,7 +15,10 @@ import { InfoPokemonPage } from '../info-pokemon/info-pokemon';
 })
 export class ItemPage {
 
-  public items: Array<void>
+  public itemView
+  public items
+  public limitItems = 20
+  public offsetItems = 0
 
   constructor(public navCtrl: NavController, public navParams: NavParams,
   public itemProvider: ItemProvider, public toastController: ToastController,
@@ -37,20 +41,49 @@ export class ItemPage {
       showCloseButton: true
     })
 
-   this.itemProvider.getItems(20)
+   this.itemProvider.getItems(this.limitItems, this.offsetItems)
        .then( data => {
           load.dismiss()
-          this.items = data['results']
+          this.itemView = this.items = data['results']
+          
        })
        .catch( e => {
+         load.dismiss()
          toast.present()
-         console.log(e)
          this.navCtrl.setRoot(HomePage)
        })
   }
 
 
-  openInfo(event) {
+  openInfo(item) {
+    this.navCtrl.push(InfoItemPage, {
+      item: { name: item.name }
+    })
+  }
+
+  doInfinite(infinityScroll) {
+    this.offsetItems += 20
+    this.itemProvider.getItems(this.limitItems, this.offsetItems)
+        .then( data => {
+          data['results'].map( data => this.items.push(data))
+          this.itemView = this.items
+          infinityScroll.complete()
+        })
+        .catch( err => {
+          infinityScroll.complete()
+          let toast = this.toastController.create({
+            message: 'Erro com conexão',
+            duration: 3000,
+            position: 'top' 
+          })
+          toast.present()
+        })
+  }
+
+  filterItems(event) {
+    let name = event.target.value
+    if(name == '' || name == undefined) this.itemView = this.items
+    else this.itemView = this.items.filter( item => item.name.toLowerCase().includes(name.toLowerCase()))
   }
 
 }

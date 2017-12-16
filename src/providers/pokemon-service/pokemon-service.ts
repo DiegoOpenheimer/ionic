@@ -15,10 +15,10 @@ export class PokemonServiceProvider {
   constructor(public http: HttpClient) {
   }
 
-  public getPokemons(limit: number) {
-    console.log(`${REST_API}${limit}`)
+  public getPokemons(limit: number, offset: number) {
+    let URI = `${REST_API}${limit}&offset=${offset}`
     return new Promise((resolve, reject) => {
-      this.http.get(`${REST_API}${limit}`)
+      this.http.get(URI)
       .subscribe( data => {
         resolve(data)
       }, err => {

@@ -2,18 +2,16 @@
 <ion-header>
 
   <ion-navbar>
-    <ion-title text-center>infoPokemon</ion-title>
+    <ion-title text-center>{{pokemonInfo?.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
-
-
 <ion-content padding class="globalBackground">
   <ion-card>
-    <img height="10%" [src]="pokemonInfo?.sprites.front_default"/>
+    <img showWhen="android, ios" height="10%" [src]="pokemonInfo?.sprites.front_default"/>
       <ion-card-content>
       <ion-card-title text-center>
-        {{pokemonInfo?.name}}      
+        <u>{{pokemonInfo?.name}}</u>      
       </ion-card-title>
       <div class="contentInfo">
         <h2>Abilities</h2>

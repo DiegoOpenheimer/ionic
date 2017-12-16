@@ -4,10 +4,17 @@
       Pokemon
     </ion-title>
   </ion-navbar>
+  <ion-toolbar >
+    <ion-searchbar placeholder="filter the pokemons" (ionCancel)="onCancel($event)" (ionInput)="filterItems($event)"></ion-searchbar>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content padding class="globalBackground">
 
-    <unique-pokemon *ngFor="let pokemon of pokemons" [pokemon]="pokemon"></unique-pokemon>
+    <unique-pokemon *ngFor="let pokemon of pokemonView" [pokemon]="pokemon"></unique-pokemon>
+    
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
 </ion-content>

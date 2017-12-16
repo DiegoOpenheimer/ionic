@@ -13,11 +13,12 @@ import { ToastController } from 'ionic-angular/components/toast/toast-controller
 export class PokemonPage {
 
   public pokemons: any
-  public pokemonName: string
-
+  public pokemonView
+  public offsetPokemons = 0
+  public limitPokemons = 20
+ 
   constructor(public navCtrl: NavController, public pokemonProvider: PokemonServiceProvider,
   public loadingController: LoadingController, public toastController: ToastController ) {
-
   }
 
   ionViewDidLoad(){
@@ -27,9 +28,10 @@ export class PokemonPage {
     })
     loading.present()
     
-    this.pokemonProvider.getPokemons(20)
+    this.pokemonProvider.getPokemons(this.limitPokemons, this.offsetPokemons)
     .then( data => {
       this.pokemons = data['results']
+      this.pokemonView = this.pokemons
       loading.dismiss()
     })
     .catch( e => {
@@ -49,6 +51,30 @@ export class PokemonPage {
     })
   }
 
-  
+  doInfinite(infinityScroll) {
+    this.offsetPokemons += 20
+    this.pokemonProvider.getPokemons(this.limitPokemons, this.offsetPokemons)
+        .then( data => {
+          data['results'].map( data => this.pokemons.push(data))
+          this.pokemonView = this.pokemons
+          infinityScroll.complete()
+        })
+        .catch( err => {
+          infinityScroll.complete()
+          let toast = this.toastController.create({
+            message: 'Erro com conexão',
+            duration: 3000,
+            position: 'top'
+          })
+          toast.present()
+        })
+  }
 
+  filterItems(event) {
+    let name = event.target.value
+    if(name == '' || name == undefined) this.pokemonView = this.pokemons
+    else this.pokemonView = this.pokemons.filter( pokemon => pokemon.name.toLowerCase().includes(name.toLowerCase()))
+  }
+
+ 
 }

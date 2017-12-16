@@ -5,16 +5,22 @@
     <ion-title>Itens</ion-title>
   </ion-navbar>
 
+  <ion-toolbar >
+      <ion-searchbar placeholder="filter the items" (ionCancel)="onCancel($event)" (ionInput)="filterItems($event)"></ion-searchbar>
+  </ion-toolbar>
+
 </ion-header>
 
 
 <ion-content padding class="globalBackground">
 
- 
-    <ion-item class="hoverMouse" *ngFor="let item of items " (click)="openInfo($event)" >
+    <ion-item class="hoverMouse" *ngFor="let item of itemView " (click)="openInfo(item)" >
       <span class="spanName">{{item.name}}</span>
       <ion-icon item-right class="iconSelect" name="ios-arrow-forward"></ion-icon>
     </ion-item>
   
+    <ion-infinite-scroll (ionInfinite)="doInfinite($event)">
+      <ion-infinite-scroll-content></ion-infinite-scroll-content>
+    </ion-infinite-scroll>
 
 </ion-content>

@@ -1,0 +1,27 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title text-center>{{infoItem?.name}}</ion-title>
+  </ion-navbar>
+
+</ion-header>
+<ion-content padding class="globalBackground">
+  <ion-card>
+    <img showWhen="android, ios" height="10%" [src]="infoItem?.sprites.default"/>
+      <ion-card-content>
+      <ion-card-title text-center>
+        <u>{{infoItem?.name}}</u>      
+      </ion-card-title>
+      <div class="contentInfo">
+        <h2>Effects</h2>
+          <ul>
+            <li><h2>{{infoItem?.effect_entries[0].short_effect}}</h2></li>
+            <li>{{infoItem?.effect_entries[0].effect}}</li>
+            
+          </ul><hr />
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
