@@ -1,32 +1,34 @@
-
 <ion-header>
 
-  <ion-navbar>
+  <ion-navbar color="dark">
     <ion-title text-center>{{pokemonInfo?.name}}</ion-title>
   </ion-navbar>
 
 </ion-header>
 <ion-content padding class="globalBackground">
   <ion-card>
-    <img showWhen="android, ios" height="10%" [src]="pokemonInfo?.sprites.front_default"/>
-      <ion-card-content>
+    <img showWhen="android, ios" height="10%" [src]="pokemonInfo?.sprites.front_default" />
+    <ion-card-content>
       <ion-card-title text-center>
-        <u>{{pokemonInfo?.name}}</u>      
+        <u>{{pokemonInfo?.name}}</u>
       </ion-card-title>
       <div class="contentInfo">
         <h2>Abilities</h2>
-          <ul>
-            <li *ngFor="let ability of pokemonInfo?.abilities">{{ability?.ability.name}}</li>
-          </ul><hr />
-          <h2>Weight</h2>
-          <ul>
-            <li>{{pokemonInfo?.weight}}</li><hr />
-          </ul>
-          <h2>Moves</h2>
-          <ul>
-            <li *ngFor="let move of pokemonInfo?.moves">{{move?.move.name}}</li>
-          </ul><hr />
-         
+        <ul>
+          <li *ngFor="let ability of pokemonInfo?.abilities">{{ability?.ability.name}}</li>
+        </ul>
+        <hr />
+        <h2>Weight</h2>
+        <ul>
+          <li>{{pokemonInfo?.weight}}</li>
+          <hr />
+        </ul>
+        <h2>Moves</h2>
+        <ul>
+          <li *ngFor="let move of pokemonInfo?.moves">{{move?.move.name}}</li>
+        </ul>
+        <hr />
+
       </div>
     </ion-card-content>
   </ion-card>

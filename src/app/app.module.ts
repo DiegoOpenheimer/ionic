@@ -17,6 +17,7 @@ import { HttpClientModule } from '@angular/common/http'
 import { ItemProvider } from '../providers/item/item';
 import { InfoPokemonPage } from '../pages/info-pokemon/info-pokemon'
 import { UniquePokemonComponent } from '../components/unique-pokemon/unique-pokemon'
+import { Keyboard } from '@ionic-native/keyboard'
 
 
 
@@ -56,6 +57,7 @@ import { UniquePokemonComponent } from '../components/unique-pokemon/unique-poke
     {provide: ErrorHandler, useClass: IonicErrorHandler},
     PokemonServiceProvider,
     ItemProvider,
+    Keyboard
     
   ]
 })
