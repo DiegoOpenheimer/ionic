@@ -1,3 +1,4 @@
+import { Keyboard } from '@ionic-native/keyboard';
 import { NavController } from 'ionic-angular';
 import { Component, ViewChild } from '@angular/core';
 
@@ -16,7 +17,14 @@ export class TabsPage {
   tab2Root = PokemonPage;
   tab3Root = ItemPage;
 
-  constructor() {
+  constructor(public keyboard: Keyboard) {
+    this.keyboard.onKeyboardShow().subscribe( data => {
+      this.myTab._elementRef.nativeElement.childNodes[0].hidden = true
+    })
+
+    this.keyboard.onKeyboardHide().subscribe( data => {
+      this.myTab._elementRef.nativeElement.childNodes[0].hidden = false
+    })
   }
   
 }
